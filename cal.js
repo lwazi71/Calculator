@@ -1,3 +1,16 @@
+window.onload = function () {
+    var answer = document.getElementById('answer'),
+    keypad = document.getElementById('keypad'),
+    buttons = keypad.getElementsByTagName('button');
+
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = function () {
+            answer.value = answer.value + this.innerHTML;
+            return false;
+        };
+    }
+};
+
 const add = function(a,b) {
     return a + b;
 };
