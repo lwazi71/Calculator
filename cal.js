@@ -1,3 +1,7 @@
+const number = document.querySelectorAll('.number');
+const operatorButton = document.querySelectorAll('.operator')
+
+
 window.onload = function() {
     var display = document.getElementById('display'),
         keypad = document.getElementById('keypad'),
