@@ -5,7 +5,7 @@ window.onload = function () {
 
     for (var i = 0; i < buttons.length; i++) {
         buttons[i].onclick = function () {
-            answer.value = answer.value + this.innerHTML;
+            answer.value += this.innerHTML;
             return false;
         };
     }
