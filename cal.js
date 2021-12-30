@@ -21,7 +21,7 @@ const showResult = document.querySelector('.result');
 */
 const displayValue = function (e) {
     const value = e.target.value;
-    document.getElementById('display').value = value;
+    document.getElementById('display').value += value;
  }
  
  const allBtns = document.querySelectorAll('.myBtn');
