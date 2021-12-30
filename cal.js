@@ -1,18 +1,34 @@
-const number = document.querySelectorAll('.number');
-const operatorButton = document.querySelectorAll('.operator')
+const numberButton = document.querySelectorAll('.number');
+const operatorButton = document.querySelectorAll('.operator');
+const clearButton = document.querySelector('.clear');
+const currentOperand = document.querySelector('.currentOperator');
+const previousOperand = document.querySelector('.previousOperator');
+const equalButton = document.querySelector('.equals-key');
+const showResult = document.querySelector('.result');
 
 
-window.onload = function() {
-    var display = document.getElementById('display'),
-        keypad = document.getElementById('keypad'),
+
+ /*function displayValue () {
+    var screen  = document.getElementById('display'),
+        keypad  = document.getElementById('keypad'),
         buttons = keypad.getElementsByTagName('button');
-    for(var i = 0; i < buttons.length; i++) {
-        buttons[i].onclick = function() {
-            display.value += this.innerHTML;
-            return false;
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].onclick = function () {
+            screen.value =+ this.innerHTML;
         };
     }
-};
+}
+*/
+const displayValue = function (e) {
+    const value = e.target.value;
+    document.getElementById('display').value = value;
+ }
+ 
+ const allBtns = document.querySelectorAll('.myBtn');
+ allBtns.forEach( element => {
+     element.addEventListener('click', displayValue)
+ })
+ 
 const add = function(a,b) {
     return a + b;
 };
