@@ -15,11 +15,17 @@ const displayValue = function (e) {
     const value = e.target.value;
     document.getElementById('display').value += value;
  }
- 
+
+ const numberButtons = document.querySelectorAll('.number');
+ numberButtons.forEach (elemnet => {
+     elemnet.addEventListener('click',displayValue);
+ })
+ /*
  const allBtns = document.querySelectorAll('.myBtn');
  allBtns.forEach( element => {
      element.addEventListener('click', displayValue)
  })
+ */
 /* numberButton.forEach(numberButton => {
     numberButton.addEventListener('click', e => {
         if(operator === '') {
