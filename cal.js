@@ -1,13 +1,13 @@
 const numberButton = document.querySelectorAll('.number');
 const operatorButton = document.querySelectorAll('.operator');
-const clearButton = document.getElementById('#clear');
+const clearButton = document.getElementById('clear');
 const currentOperand = document.querySelector('.currentOperator');
 const previousOperand = document.querySelector('.previousOperator');
-const equalButton = document.getElementById('#equal');
-const divideButton = document.getElementById('#divide');
-const multiplyButton = document.getElementById('#multiply');
-const addButton = document.getElementById('#add');
-const subtractButton = document.getElementById('#subtract');
+const equalButton = document.getElementById('equal');
+const divideButton = document.getElementById('divide');
+const multiplyButton = document.getElementById('multiply');
+const addButton = document.getElementById('add');
+const subtractButton = document.getElementById('subtract');
 currentOperand.textContent = '';
 previousOperand.textContent = '';
 
@@ -91,6 +91,7 @@ operatorButton.forEach((operator => {
 equalButton.addEventListener('click', function() {
     displayResult()
 })
+
 function displayResult() {
     result = operate(parseFloat(firstNum), parseFloat(storedNumber), clickedOperator)
     currentOperand.textContent = result;
