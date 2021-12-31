@@ -5,20 +5,11 @@ const currentOperand = document.querySelector('.currentOperator');
 const previousOperand = document.querySelector('.previousOperator');
 const equalButton = document.querySelector('.equals-key');
 const showResult = document.querySelector('.result');
+let display = '0';
+let num1 = '';
+let num2 ='';
+let operator = '';
 
-
-
- /*function displayValue () {
-    var screen  = document.getElementById('display'),
-        keypad  = document.getElementById('keypad'),
-        buttons = keypad.getElementsByTagName('button');
-    for (var i = 0; i < buttons.length; i++) {
-        buttons[i].onclick = function () {
-            screen.value =+ this.innerHTML;
-        };
-    }
-}
-*/
 const displayValue = function (e) {
     const value = e.target.value;
     document.getElementById('display').value += value;
@@ -53,3 +44,20 @@ function operate(num1,num2,operator) {
             return divide(num1,num2);
     }
 }
+numberButton.forEach(numberButton => {
+    numberButton.addEventListener('click', e => {
+        if(operator === '') {
+            num1 += e.target.innerText;
+            console.log(num1);
+        } else{
+            num2 += e.target.innrText;
+            console.log(num2)
+        }
+    });
+});
+operatorButton.forEach(operatorButton => {
+    operatorButton.addEventListener('click',e => {
+       operatorButton = e.target.innerText;
+       console.log(operatorButton)
+    });
+});
