@@ -100,6 +100,7 @@ operatorButton.forEach((operator => {
        console.log(clickedOperator);
     })
 }));
+
 equalButton.addEventListener('click', function() {
     displayResult()
 })
