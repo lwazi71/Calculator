@@ -1,19 +1,24 @@
 const numberButton = document.querySelectorAll('.number');
 const operatorButton = document.querySelectorAll('.operator');
 const clearButton = document.getElementById('clear');
+/*
 const currentOperand = document.querySelector('.currentOperator');
 const previousOperand = document.querySelector('.previousOperator');
+*/
 const equalButton = document.getElementById('equal');
 const divideButton = document.getElementById('divide');
 const multiplyButton = document.getElementById('multiply');
 const addButton = document.getElementById('add');
 const subtractButton = document.getElementById('subtract');
+const display = document.querySelectorAll('.display');
+const show = document.querySelector("#show");
+/*
 currentOperand.textContent = '';
 previousOperand.textContent = '';
-
+*/
 const displayValue = function (e) {
     const value = e.target.value;
-    document.getElementById('display').value += value;
+    document.getElementById('show').value += value;
  }
 
  const numberButtons = document.querySelectorAll('.number');
@@ -72,12 +77,14 @@ let storedNumber = '';
 let clickedOperator =''
 let firstNum = '';
 let result = '';
+/*
 currentOperand.textContent = 0;
+*/
 
 numberButton.forEach((number) => {
     number.addEventListener('click', function() {
         storedNumber += number.value;
-        currentOperand.textContent = storedNumber;
+        show.textContent = storedNumber;
     })
 });
 operatorButton.forEach((operator => {
@@ -87,20 +94,19 @@ operatorButton.forEach((operator => {
        }
        firstNum = storedNumber;
        clickedOperator = operator.textContent;
-       previousOperand.textContent = storedNumber + clickedOperator;
+       show.textContent = storedNumber + clickedOperator;
        storedNumber ='';
        console.log('FirstNumber' + firstNum + 'Stored' + storedNumber)
        console.log(clickedOperator);
     })
 }));
-
 equalButton.addEventListener('click', function() {
     displayResult()
 })
 
 function displayResult() {
     result = operate(parseFloat(firstNum), parseFloat(storedNumber), clickedOperator)
-    currentOperand.textContent = result;
-    previousOperand.textContent = firstNum + ' ' + clickedOperator + ' ' + storedNumber;
+    show.textContent = result;
+    show.textContent = firstNum  + storedNumber;
     storedNumber = result;
 }
