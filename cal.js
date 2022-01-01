@@ -110,3 +110,11 @@ function displayResult() {
     show.textContent = firstNum  + storedNumber;
     storedNumber = result;
 }
+function ceButton(){
+    storedNumber ='';
+    document.getElementById('show').innerText ='';
+}
+function cButton(){
+    storedNumber = '';
+    document.getElementById('show').innerText= 0;
+}
