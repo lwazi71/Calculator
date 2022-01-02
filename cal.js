@@ -71,6 +71,8 @@ function operate(num1,num2,operator) {
             return multiply(num1,num2);
         case "/":
             return divide(num1,num2);
+        case "=":
+        return num2;
     }
 }
 let storedNumber = '';
@@ -92,7 +94,7 @@ operatorButton.forEach((operator => {
        if(firstNum && storedNumber){
         displayResult()
        }
-       firstNum = storedNumber;
+       if(storedNumber) firstNum = storedNumber;
        clickedOperator = operator.textContent;
        show.textContent = storedNumber + clickedOperator;
        storedNumber ='';
@@ -100,9 +102,8 @@ operatorButton.forEach((operator => {
        console.log(clickedOperator);
     })
 }));
-
-equalButton.addEventListener('click', function() {
-    displayResult()
+equalButton.addEventListener('click', () => {
+    show.textContent = firstNum;
 })
 
 function displayResult() {
