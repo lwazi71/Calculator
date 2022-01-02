@@ -66,6 +66,14 @@ const divide = function(a,b) {
     }
     return a/b;
 }
+/*
+const percent = function(a,b) {
+    return(a/100 * b).toFixed(2)
+}
+const round = function(a,b){
+    return Math.round(a,b*100)/100;
+}
+*/
 function operate(num1,num2,operator) {
     switch(operator){
         case "+":
@@ -78,6 +86,8 @@ function operate(num1,num2,operator) {
             return divide(num1,num2);
         case "=":
         return num2;
+        case "%":
+            return percent(num,num2);
     }
 }
 let storedNumber = '';
@@ -87,6 +97,7 @@ let result = '';
 /*
 currentOperand.textContent = 0;
 */
+
 
 numberButton.forEach((number) => {
     number.addEventListener('click', function() {
@@ -116,6 +127,11 @@ function displayResult() {
     show.textContent = result;
     show.textContent = firstNum  + storedNumber;
     storedNumber = result;
+}
+function percent() {
+    const curr = parseFloat(storedNumber);
+    storedNumber = (curr/100);
+
 }
 function ceButton(){
     storedNumber ='';
