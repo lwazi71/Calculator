@@ -1,6 +1,7 @@
 const numberButton = document.querySelectorAll('.number');
 const operatorButton = document.querySelectorAll('.operator');
 const clearButton = document.getElementById('clear');
+const percentButton = document.getElementById('percent');
 /*
 const currentOperand = document.querySelector('.currentOperator');
 const previousOperand = document.querySelector('.previousOperator');
@@ -86,8 +87,6 @@ function operate(num1,num2,operator) {
             return divide(num1,num2);
         case "=":
         return num2;
-        case "%":
-            return percent(num,num2);
     }
 }
 let storedNumber = '';
@@ -114,25 +113,27 @@ operatorButton.forEach((operator => {
        clickedOperator = operator.textContent;
        show.textContent = storedNumber + clickedOperator;
        storedNumber ='';
+       /*
        console.log('FirstNumber' + firstNum + 'Stored' + storedNumber)
        console.log(clickedOperator);
+       */
     })
 }));
 equalButton.addEventListener('click', () => {
     show.textContent = firstNum;
 })
-
+percentButton.addEventListener('click', ()=> {
+    const curr = parseFloat(firstNum)
+    firstNum= (curr/100) 
+    console.log(firstNum);
+})
 function displayResult() {
     result = operate(parseFloat(firstNum), parseFloat(storedNumber), clickedOperator)
     show.textContent = result;
     show.textContent = firstNum  + storedNumber;
     storedNumber = result;
 }
-function percent() {
-    const curr = parseFloat(storedNumber);
-    storedNumber = (curr/100);
 
-}
 function ceButton(){
     storedNumber ='';
     document.getElementById('show').innerText ='';
