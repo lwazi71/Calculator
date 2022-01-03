@@ -6,12 +6,12 @@ body{
 }
 button{
 border:none;
-border-radius: 15px;
+border-radius: 4px;
 font-size:15px;
 text-align: center;
 color:white;
 margin:2px;
-font-family: monospace;
+font-family: Helvetica;
 }
 .number{
     width:25px;
@@ -29,9 +29,11 @@ font-family: monospace;
 #divide, #multiply, #equal, #add, #subtract{
     background-color:#f1a33c;
     text-align: center;
+    width:24px;
+
 }
-#divide{
-    margin:4px;
+#add{
+    margin-left:2px;
 }
 #equal{
     width:55px;
@@ -46,4 +48,7 @@ font-family: monospace;
 #show{
     color:white;
     font-size:15px;
+    position: relative;
+    top:13px;
+
 }
