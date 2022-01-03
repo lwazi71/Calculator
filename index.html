@@ -9,18 +9,19 @@
 </head>
 <body>
     <div class = 'container'>
+    <div class = 'calculator'>
         <!--
             <div class = 'currentOperator'></div>
             <div class = 'previousOperator'></div>
             <input type = "text" size = '13' palceholder = "88" id ='display'>
             <br>
         -->
-        <div class = 'display'></div>
+        <div class = 'display'>
             <p value ='0' id ='show'>0</p>
             <div id = 'keypad'>
-                <button id = 'CE' class ='clear myBtn'onclick = 'ceButton()' >AC</button>
-                <button id ='C' class ='clear2 myBtn' onclick = 'cButton()'>C</button>
-                <button id ='percent' class ='operator myBtn'>%</buton>
+                <button id = 'CE' class ='clear myBtn' >AC</button>
+                <button id ='C' class ='clear2 myBtn'>C</button>
+                <button id ='percent' class = 'operator myBtn'>%</buton>
                 <button value ='/' id ='divide' class ='operator myBtn' >/</button>
                 <br>
                 <button value = '7' class ='number myBtn'>7</button>
@@ -42,7 +43,9 @@
                 <button value ='.' class ='number myBtn'>.</button>
                 <button value ='=' id = 'equal' class ='operator myBtn'>=</button>
             </div>
+        </div>
     </div>
+</div>
 <script src = 'cal.js'></script> 
 </body>
 </html>

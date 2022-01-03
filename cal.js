@@ -1,7 +1,9 @@
 const numberButton = document.querySelectorAll('.number');
 const operatorButton = document.querySelectorAll('.operator');
-const clearButton = document.getElementById('clear');
+const clearButton = document.getElementById('CE');
+const deleteButton = document.getElementById('C');
 const percentButton = document.getElementById('percent');
+const changeSign = document.getElementById('negpositive');
 /*
 const currentOperand = document.querySelector('.currentOperator');
 const previousOperand = document.querySelector('.previousOperator');
@@ -127,18 +129,17 @@ percentButton.addEventListener('click', ()=> {
     firstNum= (curr/100) 
     console.log(firstNum);
 })
+clearButton.addEventListener('click', () => {
+    storedNumber ='';
+    document.getElementById('show').innerText ='';
+})
+deleteButton.addEventListener('click',() => {
+    storedNumber = '';
+    document.getElementById('show').innerText= 0;
+})
 function displayResult() {
     result = operate(parseFloat(firstNum), parseFloat(storedNumber), clickedOperator)
     show.textContent = result;
     show.textContent = firstNum  + storedNumber;
     storedNumber = result;
-}
-
-function ceButton(){
-    storedNumber ='';
-    document.getElementById('show').innerText ='';
-}
-function cButton(){
-    storedNumber = '';
-    document.getElementById('show').innerText= 0;
 }
