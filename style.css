@@ -6,7 +6,7 @@ body{
 }
 button{
 border:none;
-border-radius: 4px;
+border-radius: 2px;
 font-size:15px;
 text-align: center;
 color:white;
@@ -32,11 +32,18 @@ font-family: Helvetica;
     width:24px;
 
 }
+.backspace{
+    font-size:15px;
+    text-align: center;
+    align-items: center;
+    background-color: #f1a33c;
+    
+}
 #add{
     margin-left:2px;
 }
 #equal{
-    width:55px;
+    width:22px;
 }
 .container{
     background-color: black;

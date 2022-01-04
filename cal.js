@@ -15,6 +15,7 @@ const addButton = document.getElementById('add');
 const subtractButton = document.getElementById('subtract');
 const display = document.querySelectorAll('.display');
 const show = document.querySelector("#show");
+
 /*
 currentOperand.textContent = '';
 previousOperand.textContent = '';
@@ -34,7 +35,8 @@ const displayValue = function (e) {
  allBtns.forEach( element => {
      element.addEventListener('click', displayValue)
  })
- 
+ const backspaceButton = document.querySelector('.backspace')
+ backspaceButton.addEventListener('click',backspace);
 /* numberButton.forEach(numberButton => {
     numberButton.addEventListener('click', e => {
         if(operator === '') {
@@ -137,6 +139,11 @@ deleteButton.addEventListener('click',() => {
     storedNumber = '';
     document.getElementById('show').innerText= 0;
 })
+function backspace() {
+    var value = document.getElementById("show").innerText;
+    document.getElementById("show").innerText= value = value.substr(0,value.length-1);
+}
+
 function displayResult() {
     result = operate(parseFloat(firstNum), parseFloat(storedNumber), clickedOperator)
     show.textContent = result;
