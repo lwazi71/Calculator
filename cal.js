@@ -84,6 +84,7 @@ function backSpace() {
     storedNumber = storedNumber.substr(0,storedNumber.length-1);
     show.textContent = storedNumber;
     console.log(storedNumber)
+    console.log(firstNum)
 }
  const numberButtons = document.querySelectorAll('.number');
  numberButtons.forEach (elemnet => {
@@ -96,9 +97,9 @@ const allBtns = document.querySelectorAll('.myBtn');
 const backspaceButton = document.querySelector('.backspace')
  backspaceButton.addEventListener('click',backSpace);
 
- equalButton.addEventListener('click', ()=> {
-        var rounded = Math.round(firstNum * 1000) / 1000;
-        firstNum = rounded;
+equalButton.addEventListener('click',() => {
+    var rounded = Math.round(firstNum * 1000) / 1000;
+    firstNum = rounded;
     show.textContent = firstNum;
 })
 percentButton.addEventListener('click', ()=> {
@@ -109,7 +110,7 @@ percentButton.addEventListener('click', ()=> {
 clearButton.addEventListener('click', () => {
     storedNumber ='';
     firstNum = "";
-    document.getElementById('show').innerText ='';
+    document.getElementById('show').innerText ='Awaiting Orders';
 })
 deleteButton.addEventListener('click',() => {
     storedNumber = '';
