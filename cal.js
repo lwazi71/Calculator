@@ -11,6 +11,7 @@ const addButton = document.getElementById('add');
 const subtractButton = document.getElementById('subtract');
 const display = document.querySelectorAll('.display');
 const show = document.querySelector("#show");
+const backspaceButton = document.querySelector('.backspace')
 /** State Variables */
 let storedNumber = '';
 let clickedOperator ='';
@@ -36,7 +37,8 @@ operatorButton.forEach((operator => {
        clickedOperator = operator.textContent;
        show.textContent = storedNumber + clickedOperator;
        storedNumber ='';
-    })
+})
+    
 }));
  function displayResult() {
     result = operate(parseFloat(firstNum), parseFloat(storedNumber), clickedOperator)
@@ -60,9 +62,6 @@ const multiply = function(a,b) {
     return a * b;
 }
 const divide = function(a,b) {
-    if(b === 0){
-        return 'No sir';
-    }
     return a/b;
 }
 function operate(num1,num2,operator) {
@@ -74,11 +73,15 @@ function operate(num1,num2,operator) {
         case "*":
             return multiply(num1,num2);
         case "/":
+            if(num2 == 0){
+                show.textContent = ("No Sir");
+            }
             return divide(num1,num2);
         case "=":
             return num2;     
     }
 }
+
 /** Click Events */
 function backSpace() {
     storedNumber = storedNumber.substr(0,storedNumber.length-1);
@@ -94,9 +97,8 @@ const allBtns = document.querySelectorAll('.myBtn');
  allBtns.forEach( element => {
      element.addEventListener('click', displayValue)
  })
-const backspaceButton = document.querySelector('.backspace')
  backspaceButton.addEventListener('click',backSpace);
-
+ 
 equalButton.addEventListener('click',() => {
     var rounded = Math.round(firstNum * 1000) / 1000;
     firstNum = rounded;
@@ -107,6 +109,13 @@ percentButton.addEventListener('click', ()=> {
     firstNum = (curr/100);
     console.log(firstNum);
 })
+divideButton.addEventListener('click',() => {
+    if(storedNumber.value === '0') {
+        storedNumber += show;
+       return show.textContent = "No Sir";
+    }
+})
+/**Check these values defined above */
 clearButton.addEventListener('click', () => {
     storedNumber ='';
     firstNum = "";
