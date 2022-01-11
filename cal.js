@@ -11,7 +11,7 @@ const addButton = document.getElementById('add');
 const subtractButton = document.getElementById('subtract');
 const display = document.querySelectorAll('.display');
 const show = document.querySelector("#show");
-const backspaceButton = document.querySelector('.backspace')
+const backspaceButton = document.querySelector('.backspace');
 /** State Variables */
 let storedNumber = '';
 let clickedOperator ='';
@@ -21,7 +21,7 @@ let result = '';
 const displayValue = function (e) {
     const value = e.target.value;
     document.getElementById('show').value += value;
- }
+}
  numberButton.forEach((number) => {
     number.addEventListener('click', function() {
         storedNumber += number.value;
@@ -38,19 +38,18 @@ operatorButton.forEach((operator => {
        show.textContent = storedNumber + clickedOperator;
        storedNumber ='';
 })
-    
 }));
+function backSpace() {
+    storedNumber = storedNumber.substr(0,storedNumber.length-1);
+    firstNum = storedNumber;
+    show.textContent = firstNum;
+}
  function displayResult() {
     result = operate(parseFloat(firstNum), parseFloat(storedNumber), clickedOperator)
     show.textContent = result;
     show.textContent = firstNum  + storedNumber;
     storedNumber = result;
  }
- function roundNumber(calculate){
-    var rounded = Math.round(calculate * 1000) / 1000;
-    return rounded;
- }
- roundNumber(firstNum);
  /**Operation Function */
  const add = function(a,b) {
     return a + b;
@@ -62,6 +61,9 @@ const multiply = function(a,b) {
     return a * b;
 }
 const divide = function(a,b) {
+    if(b === 0){
+        return show.textContent = "No sir";
+    }
     return a/b;
 }
 function operate(num1,num2,operator) {
@@ -73,22 +75,12 @@ function operate(num1,num2,operator) {
         case "*":
             return multiply(num1,num2);
         case "/":
-            if(num2 == 0){
-                show.textContent = ("No Sir");
-            }
             return divide(num1,num2);
         case "=":
             return num2;     
     }
 }
-
 /** Click Events */
-function backSpace() {
-    storedNumber = storedNumber.substr(0,storedNumber.length-1);
-    show.textContent = storedNumber;
-    console.log(storedNumber)
-    console.log(firstNum)
-}
  const numberButtons = document.querySelectorAll('.number');
  numberButtons.forEach (elemnet => {
      elemnet.addEventListener('click',displayValue);
@@ -97,25 +89,22 @@ const allBtns = document.querySelectorAll('.myBtn');
  allBtns.forEach( element => {
      element.addEventListener('click', displayValue)
  })
- backspaceButton.addEventListener('click',backSpace);
- 
+backspaceButton.addEventListener('click',backSpace);
+
 equalButton.addEventListener('click',() => {
-    var rounded = Math.round(firstNum * 1000) / 1000;
-    firstNum = rounded;
+    if(firstNum) {
+        var rounded = Math.round(firstNum * 1000) / 1000;
+        firstNum = rounded;
+        show.textContent = firstNum;
+    }
     show.textContent = firstNum;
+    console.log(firstNum);
 })
 percentButton.addEventListener('click', ()=> {
     const curr = parseFloat(firstNum)
     firstNum = (curr/100);
     console.log(firstNum);
 })
-divideButton.addEventListener('click',() => {
-    if(storedNumber.value === '0') {
-        storedNumber += show;
-       return show.textContent = "No Sir";
-    }
-})
-/**Check these values defined above */
 clearButton.addEventListener('click', () => {
     storedNumber ='';
     firstNum = "";
