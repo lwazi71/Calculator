@@ -1,7 +1,7 @@
 # Calculator
 Online math based calculator!
 
-https://user-images.githubusercontent.com/50780699/181149916-347fc25c-4003-4e98-9d85-7237eae49a69.mp4
+https://user-images.githubusercontent.com/50780699/181150228-dd0e6794-08fb-4f43-9044-4c97d6c1530b.mp4
 
 # Description
 Made using Javascript, HTML, and CSS, allowing user to use different math functions. Challenges faced were creating backspace after user gets a calculation and not allowing user to divide by zero.
