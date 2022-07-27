@@ -1,5 +1,5 @@
 # Calculator
-On Screen math calculator. Built following TheOdinProject's guidelines(https://www.theodinproject.com/paths/foundations/courses/foundations/lessons/calculator)
+Online math based calculator!
 
 # Description
 Made using Javascript, HTML, and CSS, allowing user to use different math functions. Challenges faced were creating backspace after user gets a calculation and not allowing user to divide by zero.
